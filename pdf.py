@@ -40,17 +40,8 @@ import logging
 import os
 import re
 import subprocess
-try:
-    from shutil import which
-except ImportError:
-    # CPython <3.3
-    from distutils.spawn import find_executable as which
-
 from six import iteritems
 
-#from ..references.config import CFG_PATH_PDFTOTEXT
-CFG_PATH_PDFTOTEXT = os.environ.get('CFG_PATH_PDFTOTEXT', which('pdftotext')) #/usr/bin/pdftotext
-print(CFG_PATH_PDFTOTEXT)
 LOGGER = logging.getLogger(__name__)
 
 # a dictionary of undesirable characters and their replacements:
@@ -455,7 +446,7 @@ def replace_undesirable_characters(line):
     return line
 
 
-def convert_PDF_to_plaintext(fpath, keep_layout=False):
+def convert_PDF_to_plaintext(fpath, keep_layout=False, CFG_PATH_PDFTOTEXT):
     """ Convert PDF to txt using pdftotext
 
     Take the path to a PDF file and run pdftotext for this file, capturing
