@@ -446,7 +446,7 @@ def replace_undesirable_characters(line):
     return line
 
 
-def convert_PDF_to_plaintext(fpath, keep_layout=False, CFG_PATH_PDFTOTEXT):
+def convert_PDF_to_plaintext(fpath, CFG_PATH_PDFTOTEXT, keep_layout=False):
     """ Convert PDF to txt using pdftotext
 
     Take the path to a PDF file and run pdftotext for this file, capturing
